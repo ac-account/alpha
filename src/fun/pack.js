@@ -1,6 +1,11 @@
 exports.handler = function (event, context, callback) {
     const nodemailer = require('nodemailer');
 
+    const body = JSON.parse(event.body);
+    const email = body.email;
+    const name = body.name;
+    const message = body.message;
+
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport(`smtps://${process.env.EMAIL}:${process.env.PASS}@smtp.gmail.com`);
     // setup e-mail data with unicode symbols

@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 53);
+/******/ 	return __webpack_require__(__webpack_require__.s = 50);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -12363,10 +12363,7 @@ module.exports = SESTransport;
 
 
 /***/ }),
-/* 50 */,
-/* 51 */,
-/* 52 */,
-/* 53 */
+/* 50 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -12375,32 +12372,35 @@ module.exports = SESTransport;
 exports.handler = function (event, context, callback) {
     var nodemailer = __webpack_require__(24);
 
-    var body = JSON.parse(event.body);
-    var email = body.email;
-    var name = body.name;
-    var message = body.message;
+    var transporter = nodemailer.createTransport({
+        service: 'gmail',
+        auth: {
+            user: 'diganluispa@gmail.com',
+            pass: '1N3F9BLE'
+        }
+    });
 
-    // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL + ':' + process.env.PASS + '@smtp.gmail.com');
-    // setup e-mail data with unicode symbols
     var mailOptions = {
-        from: '"Fred Foo ?" <foo@blurdybloop.com>', // sender address
-        to: 'hola@luispa.im, paulypeligroso1@gmail.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
-        text: 'Hello world ?', // plaintext body
-        html: '<b>Hello world ?</b>' // html body
+        from: 'diganluispa@gmail.com',
+        to: 'hola@luispa.im',
+        subject: 'Sending Email using Node.js',
+        text: 'That was easy!'
     };
 
-    // send mail with defined transport object
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
-            return console.log(error);
+            console.log(error);
+            callback(null, {
+                statusCode: 502,
+                body: JSON.stringify(error)
+            });
+        } else {
+            console.log('Email sent: ' + info.response);
+            callback(null, {
+                statusCode: 200,
+                body: 'Email sent: ' + info.response
+            });
         }
-        console.log('Message sent: ' + info.response);
-        callback(null, {
-            statusCode: 200,
-            body: true
-        });
     });
 };
 
