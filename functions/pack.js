@@ -7260,7 +7260,7 @@ exports.handler = function (event, context, callback) {
 
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport('smtps://' + "smtps://diganluispa%40gmail.com" + ':' + "1N3F9BL3@smtp.gmail.com" + '@smtp.gmail.com');
-
+    console.log('smtps://' + "smtps://diganluispa%40gmail.com" + ':' + "1N3F9BL3@smtp.gmail.com" + '@smtp.gmail.com');
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: '"Fred Foo ?" <foo@blurdybloop.com>', // sender address
