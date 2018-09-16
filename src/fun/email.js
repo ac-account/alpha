@@ -5,7 +5,7 @@ exports.handler = function (event, context, callback) {
         service: 'gmail',
         auth: {
             user: 'diganluispa@gmail.com',
-            pass: '1N3F9BLE'
+            pass: '1N3F9BL3'
         }
     });
 
