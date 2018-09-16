@@ -7257,10 +7257,6 @@ module.exports = LeWindows;
 
 exports.handler = function (event, context, callback) {
     var nodemailer = __webpack_require__(27);
-    var body = JSON.parse(event.body);
-    var email = body.email;
-    var name = body.name;
-    var message = body.message;
 
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport('smtps://' + "smtps://diganluispa%40gmail.com" + ':' + "1N3F9BL3@smtp.gmail.com" + '@smtp.gmail.com');
