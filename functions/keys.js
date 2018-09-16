@@ -72,7 +72,7 @@
 
 
 exports.handler = function (event, context, callback) {
-    var keys = [{ email: "smtps://diganluispa%40gmail.com" }, { pass: "1N3F9BL3@smtp.gmail.com" }];
+    var keys = [{ email: process.env.EMAIL }, { pass: process.env.PASS }];
 
     callback(null, {
         statusCode: 200,

@@ -7259,8 +7259,8 @@ exports.handler = function (event, context, callback) {
     var nodemailer = __webpack_require__(27);
 
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport('smtps://' + "smtps://diganluispa%40gmail.com" + ':' + "1N3F9BL3@smtp.gmail.com" + '@smtp.gmail.com');
-    console.log('smtps://' + "smtps://diganluispa%40gmail.com" + ':' + "1N3F9BL3@smtp.gmail.com" + '@smtp.gmail.com');
+    var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL + ':' + process.env.PASS + '@smtp.gmail.com');
+    console.log('smtps://' + process.env.EMAIL + ':' + process.env.PASS + '@smtp.gmail.com');
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: '"Fred Foo ?" <foo@blurdybloop.com>', // sender address
