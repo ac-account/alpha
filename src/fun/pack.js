@@ -12,9 +12,10 @@ exports.handler = function (event, context, callback) {
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: '"Alpha Captura Website" <info@alphacaptura.com>', // sender address
-        to: 'hola@luispa.im, paulypeligroso1@gmail.com', // list of receivers
+        // to: 'admin@alphacaptura.com, info@alphacaptura.com', // list of receivers
+        to: 'hola@luispa.im, diganluispa@gmail.com', // list of receivers
         subject: 'New Alpha Captura Message', // Subject line
-        text: 'Hello world ?', // plaintext body
+        text: '', // plaintext body
         html: `
         <h1>You have a new message from alphacaptura.com</h1>
         <h2>Information:</h2>
