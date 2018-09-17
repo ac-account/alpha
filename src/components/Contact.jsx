@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import logo from '../assets/images/logo-empty.png';
 import validator from 'validator';
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 
 // const Contact = (props) => (
@@ -11,6 +12,7 @@ export default class Contact extends Component {
         name: '',
         email: '',
         message: '',
+        loaging: false,
         show: false
     };
 
@@ -37,7 +39,26 @@ export default class Contact extends Component {
 
     send = (e) => {
         e.preventDefault();
-        console.log('send');
+        this.setState({
+            loading: true
+        }, () => {
+            const { name, email, message } = this.state;
+            axios.post('/.netlify/functions/pack', {
+                "name": name,
+                "email": email,
+                "message": message
+            })
+                .then(function (response) {
+                    console.log(response);
+                    this.setState({ loading: false })
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    this.setState({ loading: false })
+                });
+            console.log('send');
+        })
+
     };
 
     clean = () => {
