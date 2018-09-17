@@ -41,41 +41,41 @@ export default class Contact extends Component {
             loading: true
         }, () => {
             const { name, email, message } = this.state;
-            // axios.post('/.netlify/functions/pack', 
-            // {
-            //     "name": name,
-            //     "email": email,
-            //     "message": message
-            // })
-            //     .then(function (response) {
-            //         console.log(response);
-            //         this.setState({ loading: false })
-            //     })
-            //     .catch(function (error) {
-            //         console.log(error);
-            //         this.setState({ loading: false })
-            //     });
-
-            const url = '/.netlify/functions/pack';
-            // The data we are going to send in our request
-            let data = {
+            axios.post('/.netlify/functions/pack', 
+            {
                 "name": name,
                 "email": email,
                 "message": message
-            }
-            // The parameters we are gonna pass to the fetch function
-            let fetchData = {
-                method: 'POST',
-                body: data,
-                headers: new Headers()
-            }
-            fetch(url, fetchData)
-                .then(function (data) {
-                    console.log(data);
+            })
+                .then(function (response) {
+                    console.log(response);
+                    this.setState({ loading: false })
                 })
-                .catch(function (data) {
-                    console.error(data);
-                })
+                .catch(function (error) {
+                    console.log(error);
+                    this.setState({ loading: false })
+                });
+
+            // const url = '/.netlify/functions/pack';
+            // // The data we are going to send in our request
+            // let data = {
+            //     "name": name,
+            //     "email": email,
+            //     "message": message
+            // }
+            // // The parameters we are gonna pass to the fetch function
+            // let fetchData = {
+            //     method: 'POST',
+            //     body: data,
+            //     headers: new Headers()
+            // }
+            // fetch(url, fetchData)
+            //     .then(function (data) {
+            //         console.log(data);
+            //     })
+            //     .catch(function (data) {
+            //         console.error(data);
+            //     })
             console.log('send');
         })
 

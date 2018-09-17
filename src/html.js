@@ -33,6 +33,7 @@ module.exports = class HTML extends React.Component {
           <link rel="shortcut icon" type="image/png" href={favicon} />
           {this.props.headComponents}
           {css}
+          <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
         </head>
         <body {...this.props.bodyAttributes}>
           {this.props.preBodyComponents}
