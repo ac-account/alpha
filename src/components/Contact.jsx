@@ -92,7 +92,7 @@ export default class Contact extends Component {
                             <ul className="actions">
                                 {this.state.show ?
                                     <div>
-                                        {/* <li> <a className="special" href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email&amp;body=The%20body%20of%20the%20email">Send</a></li> */}
+                                        <li> <a className="special" href="mailto:name1@rapidtables.com?cc=name2@rapidtables.com&bcc=name3@rapidtables.com&amp;subject=The%20subject%20of%20the%20email&amp;body=The%20body%20of%20the%20email">Send2</a></li>
                                         <li><input onClick={this.send} disabled={!this.showButton} type="submit" value="Send" className="special" /></li>
                                         <li><input onClick={this.clean} type="reset" value="Clean form" /></li>
                                     </div>

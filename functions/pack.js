@@ -12396,6 +12396,10 @@ exports.handler = function (event, context, callback) {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             return console.log(error);
+            callback(null, {
+                statusCode: 501,
+                body: false
+            });
         }
         console.log('Message sent: ' + info.response);
         callback(null, {
