@@ -11,7 +11,8 @@ export default class Contact extends Component {
         email: '',
         message: '',
         loaging: false,
-        show: false
+        show: false,
+        aviso: ""
     };
 
     updateName = (e) => {
@@ -38,7 +39,8 @@ export default class Contact extends Component {
     send = (e) => {
         e.preventDefault();
         this.setState({
-            loading: true
+            loading: true,
+            aviso: "Sending message..."
         }, () => {
             const { name, email, message } = this.state;
             axios.post('/.netlify/functions/pack',
@@ -49,33 +51,12 @@ export default class Contact extends Component {
                 })
                 .then((response) => {
                     console.log(response);
-                    this.setState({ loading: false })
+                    this.setState({ loading: false, aviso: "The email has been sended" })
                 })
                 .catch((error) => {
                     console.log(error);
-                    this.setState({ loading: false })
+                    this.setState({ loading: false, aviso: "Error" })
                 });
-
-            // const url = '/.netlify/functions/pack';
-            // // The data we are going to send in our request
-            // let data = {
-            //     "name": name,
-            //     "email": email,
-            //     "message": message
-            // }
-            // // The parameters we are gonna pass to the fetch function
-            // let fetchData = {
-            //     method: 'POST',
-            //     body: data,
-            //     headers: new Headers()
-            // }
-            // fetch(url, fetchData)
-            //     .then(function (data) {
-            //         console.log(data);
-            //     })
-            //     .catch(function (data) {
-            //         console.error(data);
-            //     })
             console.log('send');
         })
 
@@ -118,6 +99,7 @@ export default class Contact extends Component {
                                     null
                                 }
                             </ul>
+                            <h2>{this.state.aviso}</h2>
                         </form>
                     </section>
                     <section className="split">
