@@ -41,17 +41,17 @@ export default class Contact extends Component {
             loading: true
         }, () => {
             const { name, email, message } = this.state;
-            axios.post('/.netlify/functions/pack', 
-            {
-                "name": name,
-                "email": email,
-                "message": message
-            })
-                .then(function (response) {
+            axios.post('/.netlify/functions/pack',
+                {
+                    "name": name,
+                    "email": email,
+                    "message": message
+                })
+                .then((response) => {
                     console.log(response);
                     this.setState({ loading: false })
                 })
-                .catch(function (error) {
+                .catch((error) => {
                     console.log(error);
                     this.setState({ loading: false })
                 });
