@@ -12378,7 +12378,8 @@ exports.handler = function (event, context, callback) {
     var body = JSON.parse(event.body);
     var email = body.email;
     var name = body.name;
-    var message = body.message;
+    var message = body.message; // message
+
 
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport('smtps://' + process.env.EMAIL + ':' + process.env.PASS + '@smtp.gmail.com');
@@ -12388,7 +12389,7 @@ exports.handler = function (event, context, callback) {
         to: 'hola@luispa.im, paulypeligroso1@gmail.com', // list of receivers
         subject: 'New Alpha Captura Message', // Subject line
         text: 'Hello world ?', // plaintext body
-        html: '\n        <p><b>Name: </b> ' + name + ' <p>\n        <p><b>Email Address: </b> ' + email + ' <p>\n        <p><b>Message: </b> ' + message + ' <p>\n        ' // html body
+        html: '\n        <h1>You have a new message from alphacaptura.com</h1>\n        <h2>Information:</h2>\n        <p><b>Name: </b> ' + name + ' <p>\n        <p><b>Email Address: </b> ' + email + ' <p>\n        <p><b>Message: </b> ' + message + ' <p>\n        ' // html body
     };
 
     // send mail with defined transport object

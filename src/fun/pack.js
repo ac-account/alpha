@@ -4,7 +4,8 @@ exports.handler = function (event, context, callback) {
     const body = JSON.parse(event.body);
     const email = body.email;
     const name = body.name;
-    const message = body.message;
+    const message = body.message; // message
+
 
     // create reusable transporter object using the default SMTP transport
     var transporter = nodemailer.createTransport(`smtps://${process.env.EMAIL}:${process.env.PASS}@smtp.gmail.com`);
@@ -15,6 +16,8 @@ exports.handler = function (event, context, callback) {
         subject: 'New Alpha Captura Message', // Subject line
         text: 'Hello world ?', // plaintext body
         html: `
+        <h1>You have a new message from alphacaptura.com</h1>
+        <h2>Information:</h2>
         <p><b>Name: </b> ${name} <p>
         <p><b>Email Address: </b> ${email} <p>
         <p><b>Message: </b> ${message} <p>
