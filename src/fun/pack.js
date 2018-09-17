@@ -10,11 +10,15 @@ exports.handler = function (event, context, callback) {
     var transporter = nodemailer.createTransport(`smtps://${process.env.EMAIL}:${process.env.PASS}@smtp.gmail.com`);
     // setup e-mail data with unicode symbols
     var mailOptions = {
-        from: '"Fred Foo ?" <foo@blurdybloop.com>', // sender address
+        from: '"Alpha Captura Website" <info@alphacaptura.com>', // sender address
         to: 'hola@luispa.im, paulypeligroso1@gmail.com', // list of receivers
-        subject: 'Hello ✔', // Subject line
+        subject: 'New Alpha Captura Message', // Subject line
         text: 'Hello world ?', // plaintext body
-        html: '<b>Hello world ?</b>' // html body
+        html: `
+        <p><b>Name: </b> ${name} <p>
+        <p><b>Email Address: </b> ${email} <p>
+        <p><b>Message: </b> ${message} <p>
+        ` // html body
     };
 
     // send mail with defined transport object
