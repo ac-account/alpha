@@ -8,7 +8,7 @@ exports.handler = function (event, context, callback) {
 
 
     // create reusable transporter object using the default SMTP transport
-    var transporter = nodemailer.createTransport(`smtps://diganluispa%40gmail.com:1N3F9BL3@smtp.gmail.com`);
+    var transporter = nodemailer.createTransport(`smtps://${process.env.EMAIL}:${process.env.PASS}@smtp.gmail.com`);
     // setup e-mail data with unicode symbols
     var mailOptions = {
         from: '"Alpha Captura Website" <info@alphacaptura.com>', // sender address
@@ -28,10 +28,6 @@ exports.handler = function (event, context, callback) {
     transporter.sendMail(mailOptions, function (error, info) {
         if (error) {
             return console.log(error);
-            callback(null, {
-                statusCode: 501,
-                body: false
-            });
         }
         console.log('Message sent: ' + info.response);
         callback(null, {
