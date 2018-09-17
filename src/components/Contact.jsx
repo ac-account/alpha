@@ -70,9 +70,12 @@ export default class Contact extends Component {
                 headers: new Headers()
             }
             fetch(url, fetchData)
-                .then(function () {
-                    // Handle response you get from the server
-                });
+                .then(function (data) {
+                    console.log(data);
+                })
+                .catch(function (data) {
+                    console.error(data);
+                })
             console.log('send');
         })
 
