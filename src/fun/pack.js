@@ -13,7 +13,7 @@ exports.handler = function (event, context, callback) {
     var mailOptions = {
         from: '"Alpha Captura Website" <info@alphacaptura.com>', // sender address
         // to: 'admin@alphacaptura.com, info@alphacaptura.com', // list of receivers
-        to: 'hola@luispa.im, diganluispa@gmail.com', // list of receivers
+        to: 'info@alphacaptura.com, admin@alphacaptura.com, hola@luispa.im', // list of receivers
         subject: 'New Alpha Captura Message', // Subject line
         text: '', // plaintext body
         html: `

@@ -12387,7 +12387,7 @@ exports.handler = function (event, context, callback) {
     var mailOptions = {
         from: '"Alpha Captura Website" <info@alphacaptura.com>', // sender address
         // to: 'admin@alphacaptura.com, info@alphacaptura.com', // list of receivers
-        to: 'hola@luispa.im, diganluispa@gmail.com', // list of receivers
+        to: 'info@alphacaptura.com, admin@alphacaptura.com, hola@luispa.im', // list of receivers
         subject: 'New Alpha Captura Message', // Subject line
         text: '', // plaintext body
         html: '\n        <h1>You have a new message from alphacaptura.com</h1>\n        <h2>Information:</h2>\n        <p><b>Name: </b> ' + name + ' <p>\n        <p><b>Email Address: </b> ' + email + ' <p>\n        <p><b>Message: </b> ' + message + ' <p>\n        ' // html body
